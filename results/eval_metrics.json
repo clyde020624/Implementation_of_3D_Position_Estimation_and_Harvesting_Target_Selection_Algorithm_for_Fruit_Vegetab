@@ -1,0 +1,16 @@
+{
+  "weights": "C:\\BUP-ST20\\BUP-ST20_CODE\\runs\\bupst20\\yolo12n_100e\\weights\\best.pt",
+  "data": "C:\\BUP-ST20\\BUP-ST20_DATA_after\\bupst20_one_class.yaml",
+  "split": "test",
+  "mAP50_95": 0.5702858260339926,
+  "mAP50": 0.7850077985589263,
+  "mAP75": 0.6260573853495213,
+  "precision_mean": 0.8695355932546678,
+  "recall_mean": 0.7024182638583818,
+  "mAP50_95_per_class": [
+    0.5702858260339926
+  ],
+  "class_names": {
+    "0": "pepper"
+  }
+}
