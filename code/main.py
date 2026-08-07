@@ -39,14 +39,14 @@ from localization import (
 # ====================================================================
 # ★ 설정 ★
 # ====================================================================
-MODE_SOURCE = "gt"          # "gt" 또는 "yolo"
+MODE_SOURCE = "yolo"          # "gt" 또는 "yolo"
 MODE        = "visibility"  # Priority Score 구성
 
 DATA_DIR = "dataset_bulk"
-CAM_PATH = r"C:\Users\82109\Downloads\cam_params.yaml"   # ★ 실제 경로
+CAM_PATH = "cam_params.yaml"   # ★ 실제 경로
 IMG_SIZE = (720, 1280)
 
-DETECTION_CSV = "eval_detections.csv"    # "yolo" 모드에서 사용
+DETECTION_CSV = "eval_detections_fixed.csv"    # "yolo" 모드에서 사용
 IOU_THRESHOLD = 0.5                      # 예측↔GT 매칭 기준
 SHOW_TOP1_FRAMES = 2                     # Top-1 예시로 보여줄 프레임 수
 
@@ -100,8 +100,9 @@ def attach_predictions(frames, seq):
     else:
         for f in frames:
             # GT를 예측처럼 사용 (bbox/confidence만)
-            f["preds"] = [{"bbox": g["bbox"], "confidence": 1.0,
-                           "mask_area": g.get("mask_area"), "id": g.get("id")}
+           f["preds"] = [{"bbox": g["bbox"], "confidence": 1.0,
+                           "mask_area": g.get("mask_area"), "id": g.get("id"),
+                           "gt_matched": True}          # ← 이 줄 추가
                           for g in f["gts"]]
         return frames
 
@@ -138,7 +139,8 @@ def compare_baseline(frames, weights):
     diff_cases = []
 
     for f in frames:
-        objs = [dict(o) for o in f["preds"]]
+        objs = [dict(o) for o in f["preds"]
+                if o.get("gt_matched", False)]
         top1, scored = select_top1(objs, f["depth_map"],
                                    weights, f["img_size"], MODE)
         if top1 is None or not scored:

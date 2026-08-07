@@ -34,7 +34,7 @@ from priority import extract_depth
 
 
 DATA_DIR = "dataset_bulk"
-CAM_PATH = r"C:\Users\82109\Downloads\cam_params.yaml"   # ★ 실제 경로로
+CAM_PATH = "cam_params.yaml"   # ★ 실제 경로로
 IMG_SIZE = (720, 1280)
 
 

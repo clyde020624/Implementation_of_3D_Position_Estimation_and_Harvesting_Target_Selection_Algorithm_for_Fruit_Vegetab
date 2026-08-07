@@ -28,7 +28,8 @@ ANN_ARCHIVE = r"C:\Users\82109\Downloads\bupst20_annotations (1).tar.gz"
 DEPTH_ZIP   = r"C:\Users\82109\Downloads\bupst20_depth.tar.gz.zip"
 
 OUT_DIR = "dataset_bulk"          # 추출 폴더
-TARGET_SEQUENCES = ["100", "101", "102"]   # 뽑을 시퀀스 (원하는 만큼)
+TARGET_SEQUENCES = ["400", "401", "402", "403", "404",
+                    "405", "406", "407", "408", "409"]   # 뽑을 시퀀스 (원하는 만큼)
 MAX_PER_SEQ = 40                   # 시퀀스당 최대 프레임 수
 
 

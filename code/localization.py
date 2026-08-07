@@ -53,6 +53,7 @@ def depth_from_mask(mask, depth_map):
        파프리카 픽셀만 사용하므로 배경/잎 오염이 적어 reference로 적합."""
     if mask is None:
         return None, None
+    mask = np.asarray(mask).astype(bool)     # ← 추가
     if mask.shape != depth_map.shape:
         return None, None
     vals = depth_map[mask & (depth_map > 0)]

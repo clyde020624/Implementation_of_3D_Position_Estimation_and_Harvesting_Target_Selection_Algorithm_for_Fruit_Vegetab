@@ -160,7 +160,12 @@ def load_bupst20_annotation(pkl_path):
 
     objects = []
     for obj_id, info in ann.items():
-        bbox = info["bbox"]
+        # --- 방어: 비정상 레코드는 건너뜀 (IndexError 방지) ---
+        if not isinstance(info, dict):
+            continue
+        bbox = info.get("bbox")
+        if bbox is None or not hasattr(bbox, "__len__") or len(bbox) < 4:
+            continue
         x, y, w, h = float(bbox[0]), float(bbox[1]), float(bbox[2]), float(bbox[3])
 
         # mask 픽셀 수 (가시성 계산용). area 키가 있으면 그것도 활용
@@ -174,6 +179,8 @@ def load_bupst20_annotation(pkl_path):
             "bbox": [x, y, x + w, y + h],        # x,y,w,h → x1,y1,x2,y2
             "confidence": 1.0,                    # GT 라벨
             "mask_area": mask_area,
+               # ★ 추가
+            "instance_mask": info.get("instance_mask", None),
             "semantic_label": info.get("semantic_label", None),  # 색상(보조)
         })
     return objects

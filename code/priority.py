@@ -104,12 +104,16 @@ def score_ripeness(obj):
 
 
 def score_visibility(obj):
-    """가시성: 마스크 면적 / 박스 면적 (많이 보일수록 1에 가까움).
-       mask_area가 없으면 1.0으로 처리(가림 정보 없음 = 페널티 없음)."""
-    if "mask_area" not in obj:
-        return 1.0
+    """
+    GT mask 기반 occupancy proxy.
+    mask_area가 없는 객체는 0으로 처리한다.
+    """
+    if "mask_area" not in obj or obj["mask_area"] is None:
+        return 0.0
+
     x1, y1, x2, y2 = obj["bbox"]
     bbox_area = max(1, (x2 - x1) * (y2 - y1))
+
     return min(1.0, obj["mask_area"] / bbox_area)
 
 
