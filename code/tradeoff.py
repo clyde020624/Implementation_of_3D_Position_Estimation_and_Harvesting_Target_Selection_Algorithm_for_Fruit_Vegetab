@@ -44,7 +44,7 @@ IMG_SIZE       = (720, 1280)
 IOU_THRESHOLD  = 0.5
 CONF_THRESHOLD = 0.3
 
-PLOT_PATH = "tradeoff_scatter.png"
+PLOT_PATH = "v1_depth_visibility_scatter.png"
 MAKE_PLOT = True          # matplotlib 없으면 False
 
 
@@ -210,7 +210,7 @@ def main():
                        facecolors="none", edgecolors="#1f6f8b",
                        linewidths=1.2, label="Proposed (Full)")
 
-            ax.set_xlabel("Distance (mm)")
+            ax.set_xlabel("Representative depth (mm)")
             ax.set_ylabel("Visibility (mask area / bbox area)")
             ax.set_title(f"Selected target: nearest vs proposed "
                          f"(n={n_diff} frames)")

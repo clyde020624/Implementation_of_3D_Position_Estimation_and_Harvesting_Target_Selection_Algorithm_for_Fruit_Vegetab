@@ -1,0 +1,5 @@
+dataset_bulk/
+__pycache__/
+*.pyc
+.venv/
+venv/
