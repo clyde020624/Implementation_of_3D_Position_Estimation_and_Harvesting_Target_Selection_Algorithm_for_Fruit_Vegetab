@@ -70,7 +70,7 @@ from priority import (
 # ====================================================================
 
 DATA_DIR = "dataset_bulk"
-DETECTION_CSV = "eval_detections_fixed.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
 
 SEQUENCES = {str(i) for i in range(400, 410)}
 
@@ -94,7 +94,7 @@ CHECK_SEQ = "406"
 CHECK_FRAME = "1600938551617024"
 
 # 프레임별 결과 저장
-OUTPUT_CSV = "mask_depth_reanalysis_results.csv"
+OUTPUT_CSV = "results/mask_depth_reanalysis_results.csv"
 
 
 # ====================================================================

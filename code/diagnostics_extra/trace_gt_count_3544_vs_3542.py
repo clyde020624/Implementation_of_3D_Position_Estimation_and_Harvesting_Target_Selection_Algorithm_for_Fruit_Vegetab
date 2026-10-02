@@ -15,7 +15,7 @@ from load_detections import load_detections_csv
 
 DATA_DIR = Path("dataset_bulk")
 AUDIT_FRAME_CSV = Path("gt_coverage_frame_summary.csv")
-DETECTION_CSV = "eval_detections_fixed.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
 OUTPUT_BY_FRAME = Path("gt_count_3544_vs_3542_by_frame.csv")
 OUTPUT_MISMATCH = Path("gt_count_3544_vs_3542_mismatch.csv")
 

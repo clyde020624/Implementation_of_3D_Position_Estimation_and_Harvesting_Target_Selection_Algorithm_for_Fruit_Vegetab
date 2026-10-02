@@ -24,7 +24,7 @@ from priority import normalize_proximity, score_center, score_visibility
 
 
 COMPARISON_CSV = "candidate_pool_top1_comparison.csv"
-DETECTION_CSV = "eval_detections_fixed.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
 OUTPUT_CSV = "changed_disagreement_frames.csv"
 EXPECTED_CHANGED = 7
 

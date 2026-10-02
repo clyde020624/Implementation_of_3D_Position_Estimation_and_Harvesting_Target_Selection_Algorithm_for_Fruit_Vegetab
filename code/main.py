@@ -46,7 +46,7 @@ DATA_DIR = "dataset_bulk"
 CAM_PATH = "cam_params.yaml"   # ★ 실제 경로
 IMG_SIZE = (720, 1280)
 
-DETECTION_CSV = "eval_detections_fixed.csv"    # "yolo" 모드에서 사용
+DETECTION_CSV = "results/eval_detections_fixed.csv"    # "yolo" 모드에서 사용
 IOU_THRESHOLD = 0.5                      # 예측↔GT 매칭 기준
 SHOW_TOP1_FRAMES = 2                     # Top-1 예시로 보여줄 프레임 수
 

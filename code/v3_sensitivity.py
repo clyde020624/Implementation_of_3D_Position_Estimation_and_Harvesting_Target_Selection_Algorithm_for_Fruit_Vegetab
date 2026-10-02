@@ -13,8 +13,8 @@ from load_detections import load_detections_csv
 from mask_depth_reanalysis import MODE, select_top1_precomputed
 
 
-DETECTION_CSV = "eval_detections_fixed.csv"
-OUTPUT_CSV = "v3_sensitivity_results.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
+OUTPUT_CSV = "results/v3_sensitivity_results.csv"
 
 VISIBILITY_WEIGHTS = (0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6)
 BASELINE_VISIBILITY = 0.3

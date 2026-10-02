@@ -23,8 +23,8 @@ from priority import score_center, score_visibility
 
 
 DATA_DIR = "dataset_bulk"
-DETECTION_CSV = "eval_detections_fixed.csv"
-REFERENCE_FRAME_CSV = "mask_depth_reanalysis_results.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
+REFERENCE_FRAME_CSV = "results/mask_depth_reanalysis_results.csv"
 CONF_THRESHOLD = 0.30
 IOU_THRESHOLD = 0.50
 EXPECTED_FRAMES = 364

@@ -30,7 +30,7 @@ from load_detections import load_detections_csv
 
 DATA_DIR      = "dataset_bulk"
 CAM_PATH      = "cam_params.yaml"
-DETECTION_CSV = "eval_detections_fixed.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
 IOU_THRESHOLD = 0.5
 
 

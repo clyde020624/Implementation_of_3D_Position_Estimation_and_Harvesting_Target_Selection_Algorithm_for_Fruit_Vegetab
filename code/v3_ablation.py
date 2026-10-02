@@ -15,8 +15,8 @@ from mask_depth_ablation import ABLATIONS
 from mask_depth_reanalysis import MODE, select_top1_precomputed
 
 
-DETECTION_CSV = "eval_detections_fixed.csv"
-OUTPUT_CSV = "pure_mask_ablation_results.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
+OUTPUT_CSV = "results/pure_mask_ablation_results.csv"
 
 EXPECTED_FRAMES = 364
 EXPECTED_CANDIDATES = 2728

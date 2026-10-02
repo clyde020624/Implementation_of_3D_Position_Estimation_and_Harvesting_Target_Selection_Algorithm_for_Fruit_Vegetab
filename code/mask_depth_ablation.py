@@ -21,7 +21,7 @@ from mask_depth_reanalysis import (
 
 
 DATA_DIR = "dataset_bulk"
-DETECTION_CSV = "eval_detections_fixed.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
 OUTPUT_CSV = "mask_depth_ablation_results.csv"
 
 SEQUENCES = {str(i) for i in range(400, 410)}

@@ -24,8 +24,8 @@ from mask_depth_reanalysis import prepare_candidates
 
 
 DATA_DIR = "dataset_bulk"
-DETECTION_CSV = "eval_detections_fixed.csv"
-REFERENCE_FRAME_CSV = "mask_depth_reanalysis_results.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
+REFERENCE_FRAME_CSV = "results/mask_depth_reanalysis_results.csv"
 SEQUENCES = tuple(str(value) for value in range(400, 410))
 CONF_THRESHOLD = 0.30
 IOU_THRESHOLD = 0.50

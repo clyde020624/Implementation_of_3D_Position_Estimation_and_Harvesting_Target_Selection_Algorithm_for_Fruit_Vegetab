@@ -20,9 +20,9 @@ from mask_depth_reanalysis import (
 from priority import score_center, score_visibility
 
 
-DETECTION_CSV = "eval_detections_fixed.csv"
-RESULTS_CSV = "v3_tradeoff_results.csv"
-SUMMARY_CSV = "v3_tradeoff_summary.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
+RESULTS_CSV = "results/v3_tradeoff_results.csv"
+SUMMARY_CSV = "results/v3_tradeoff_summary.csv"
 
 EXPECTED_FRAMES = 364
 EXPECTED_CANDIDATES = 2728

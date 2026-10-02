@@ -15,7 +15,7 @@ from trace_changed_disagreement_frames import score_pool
 
 
 COMPARISON_CSV = "candidate_pool_top1_comparison.csv"
-DETECTION_CSV = "eval_detections_fixed.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
 OUTPUT_CSV = "proximity_normalization_impact_audit.csv"
 
 EXPECTED_AFFECTED_FRAMES = 69

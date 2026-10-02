@@ -39,7 +39,7 @@ from load_detections import load_detections_csv, attach_mask_from_pkl
 # ====================================================================
 DATA_DIR      = "dataset_bulk"
 CAM_PATH      = "cam_params.yaml"
-DETECTION_CSV = "eval_detections_fixed.csv"
+DETECTION_CSV = "results/eval_detections_fixed.csv"
 MODE          = "visibility"
 IMG_SIZE      = (720, 1280)
 IOU_THRESHOLD = 0.5

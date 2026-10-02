@@ -38,13 +38,13 @@ from load_detections import load_detections_csv, attach_mask_from_pkl
 # ★ 설정 ★
 # ====================================================================
 DATA_DIR       = "dataset_bulk"
-DETECTION_CSV  = "eval_detections_fixed.csv"
+DETECTION_CSV  = "results/eval_detections_fixed.csv"
 MODE           = "visibility"
 IMG_SIZE       = (720, 1280)
 IOU_THRESHOLD  = 0.5
 CONF_THRESHOLD = 0.3
 
-PLOT_PATH = "v1_depth_visibility_scatter.png"
+PLOT_PATH = "assets/images/v1_depth_visibility_scatter.png"
 MAKE_PLOT = True          # matplotlib 없으면 False
 
 
