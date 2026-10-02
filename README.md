@@ -2,7 +2,7 @@
 
 주제 : 과채류의 3차원 위치 추정 및 수확 대상 선택 알고리즘 구현
 
-* **저자 : 김동현, 정지성, 박민혁, 이규원, 이성재, 류병석, 김영균
+* **저자 : 김동현, 정지성, 박민혁, 이규원, 류병석, 김영균
 * **ACK 2026 한국정보처리학회 학술대회논문집 33권 2호 ooo-ooo(0pages)**
 
 본 연구는 온실의 여러 과실을 검출하고 3차원 위치를 추정한 뒤, 깊이 근접도·가시성 점수·검출 신뢰도·화면 중심 근접도를 결합하여 최우선 수확 대상을 선정한다. 깊이만 사용하는 기준 방법과 비교하여 **선정 결과가 얼마나 달라지고, 선택된 과실은 어떤 특성을 갖는지** 분석하였다.
@@ -539,3 +539,69 @@ GT 마스크 기반 평가 기준 위치와의 3차원 거리 오차 중앙값�
 [9] Y. Tian, Q. Ye, and D. Doermann, “YOLOv12: Attention-Centric Real-Time Object Detectors,” arXiv:2502.12524, 2025.
 
 
+---
+
+<a id="reproduction"></a>
+## 💻 13. 실행 방법
+
+### 13.1 실행 전 준비
+
+BUP-ST20 원본 데이터는 저장소에 포함되어 있지 않으므로, 저장소 루트에 `dataset_bulk/` 디렉터리를 준비한다.
+
+| 준비 항목 | 경로 |
+|---|---|
+| BUP-ST20 원본 데이터 | `dataset_bulk/` (`depth/` 등 원본 데이터 구조 유지) |
+| YOLO 검출 결과 | `results/eval_detections_fixed.csv` |
+| 카메라 내부 파라미터 | `cam_params.yaml` |
+
+아래 명령은 모두 **저장소 루트**에서 실행한다.
+
+### 13.2 평가 기준 위치 점검 및 전체 파이프라인
+
+```bash
+# GT 마스크·깊이 기반 평가 기준 위치 점검
+python code/check_reference.py
+
+# 3차원 위치 추정 및 대상 선정 전체 파이프라인
+python code/main.py
+```
+
+> `main.py`의 기본 대상 선정은 검출 신뢰도 임계값 **0.05**를 사용한다. 논문의 V1 대상 선정 분석은 **0.30**을 사용하므로, 논문 설정의 결과는 아래 V1 분석 명령으로 확인한다.
+
+### 13.3 V1 분석 실행
+
+```bash
+# 검출 신뢰도 임계값 분석 — 논문 설정 0.30 확인
+python code/threshold_experiment.py
+
+# 구성요소별 비교
+python code/ablation.py
+
+# 가시성 가중치 민감도 분석
+python code/sensitivity.py
+
+# 깊이–가시성 선택 특성 분석
+python code/tradeoff.py
+```
+
+### 13.4 V3 보강 분석 실행
+
+`results/mask_depth_reanalysis_results.csv`가 없거나 재생성이 필요한 경우, 다음 명령을 먼저 실행한다.
+
+```bash
+# GT 마스크 내부 대표 깊이 재분석
+python code/mask_depth_reanalysis.py
+```
+
+이후 다음 분석을 실행한다.
+
+```bash
+# 구성요소별 비교
+python code/v3_ablation.py
+
+# 가시성 가중치 민감도 분석
+python code/v3_sensitivity.py
+
+# 깊이–가시성 선택 특성 분석
+python code/v3_tradeoff.py
+```
